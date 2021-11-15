@@ -6,17 +6,18 @@ class Initial extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: Center(
-        child:  Column(
-          children:  [
-            const Text('Welcome to initial page'),
-            ElevatedButton(onPressed: (){
-              Navigator.pushNamed(context, MoveTo.third);
-            }, child: const Text('Move to Next Page'))
-          ],
-        )
-      ),
+          child: Column(
+        children: [
+          const Text('Welcome to initial page'),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, MoveTo.third);
+              },
+              child: const Text('Move to Next Pagaesss'))
+        ],
+      )),
     );
   }
 }

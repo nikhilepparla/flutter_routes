@@ -9,28 +9,35 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> {
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-        body: Column(
-      children: <Widget>[
-        Container(height: height*0.3,
-          color: Colors.blue,
-        ),
-        Container(
-         // color: Colors.blue,
-          child: ElevatedButton(
-            child: const Text('enter'),
+        body: Form(
+      child: Column(
+        children: <Widget>[
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 50),
+            child: TextField(
+              decoration: InputDecoration(border: OutlineInputBorder()),
+            ),
+          ),
+          TextField(),
+          ElevatedButton(
+            child: const Text('Submit'),
             onPressed: () {
               Navigator.pushNamed(context, MoveTo.third);
             },
           ),
-        ),
-      ],
+          Expanded(
+            child: Image.asset(
+              'assets/tt.jpg',
+            ),
+          )
+        ],
+      ),
     ));
   }
 }

@@ -13,6 +13,8 @@ class _FirstScreenState extends State<FirstScreen> {
     return Scaffold(
       body: Container(
         color: Colors.yellow,
+        height: 90,
+        width: 50,
       ),
     );
   }

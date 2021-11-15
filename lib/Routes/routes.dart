@@ -8,7 +8,7 @@ class MoveTo {
   static const first = '/first';
   static const second = '/sec';
   static const third = '/third';
-  static const fourth = '/fifth';
+  static const fourth = '/fourth';
 }
 
 class MyRoutes {

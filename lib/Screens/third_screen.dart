@@ -7,25 +7,23 @@ class ThirdScreen extends StatefulWidget {
   const ThirdScreen({Key? key}) : super(key: key);
 
   @override
-  _FirstScreenState createState() => _FirstScreenState();
+  _ThirdScreenState createState() => _ThirdScreenState();
 }
 
-class _FirstScreenState extends State<ThirdScreen> {
-  String url = 'https://jsonplaceholder.typicode.com/users';
+class _ThirdScreenState extends State<ThirdScreen> {
   var postJson = [];
-  void feetchdata() async {
+  var url = 'https://jsonplaceholder.typicode.com/users';
+  fetchpostData() async {
     try {
-      final response = await get(
-        Uri.parse(url),
-      );
-      final jsondata = jsonDecode(response.body) as List;
-
-      print(response.body);
+      final resopnse =
+          await post(Uri.parse(url), body: {"email": "e.alpha", "id": "11"});
+      final jsonData = jsonDecode(resopnse.body);
+      print(resopnse.body);
       setState(() {
-        postJson = jsondata;
+        postJson = jsonData;
       });
-    } catch (e) {
-      print('error');
+    } catch (errorOcuuredd) {
+      print(errorOcuuredd);
     }
   }
 
@@ -33,18 +31,21 @@ class _FirstScreenState extends State<ThirdScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    feetchdata();
+    fetchpostData();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView.builder(
-      itemCount: postJson.length,
-      itemBuilder: (context, i) {
-        final post = postJson[i];
-        return Text('Id =${post['id']}\n Email =${post['email']}\n\n');
-      },
-    ));
+    return const Scaffold(
+
+        // body: ListView.builder(
+        //   itemBuilder: (context, index) {
+        //     final post = postJson[index];
+        //     return Text(
+        //         'Username is ${post['username']}\n Email is ${post['email']}\n\n');
+        //   },
+        //   itemCount: postJson.length,
+        // ),
+        );
   }
 }
